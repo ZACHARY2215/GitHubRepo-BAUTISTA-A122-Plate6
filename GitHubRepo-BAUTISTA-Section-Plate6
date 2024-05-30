@@ -57,7 +57,7 @@ public class testBautistaDS {
         for (int i = 0; i < m; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges.add(new int[] { u, v });
+            edges.add(new int[] { (u - 1), (v - 1) });
         }
 
         int numComponents = countConnectedComponents(n, edges);
@@ -101,7 +101,7 @@ public class testBautistaDS {
                 adjMatrix[i][j] = scanner.nextInt();
             }
         }
-
+        System.out.println("Occurences:");
         Map<String, Integer> edgeCount = listEdges(adjMatrix);
         for (Map.Entry<String, Integer> entry : edgeCount.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
@@ -114,7 +114,7 @@ public class testBautistaDS {
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 if (adjMatrix[i][j] > 0) {
-                    String edge = i + "-" + j;
+                    String edge = i + 1 + "-" + (j + 1);
                     edgeCount.put(edge, adjMatrix[i][j]);
                 }
             }
@@ -133,7 +133,7 @@ public class testBautistaDS {
         for (int i = 0; i < m; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges.add(new int[] { u, v });
+            edges.add(new int[] { (u - 1), (v - 1) });
         }
 
         boolean hasCycle = hasCycle(n, edges);
@@ -166,12 +166,12 @@ public class testBautistaDS {
         for (int i = 0; i < m; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges.add(new int[] { u, v });
+            edges.add(new int[] { (u - 1), (v - 1) });
         }
         System.out.println("Enter the vertex to find the degree of:");
         int vertex = scanner.nextInt();
 
-        int degree = getDegree(edges, vertex);
+        int degree = getDegree(edges, (vertex - 1));
         System.out.println("Degree of vertex " + vertex + ": " + degree);
     }
 
@@ -196,7 +196,7 @@ public class testBautistaDS {
         for (int i = 0; i < m; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges.add(new int[] { u, v });
+            edges.add(new int[] { (u - 1), (v - 1) });
         }
 
         boolean isBipartite = isBipartite(n, edges);
@@ -258,10 +258,11 @@ public class testBautistaDS {
         for (int i = 0; i < m; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges.add(new int[] { u, v });
+            edges.add(new int[] { (u - 1), (v - 1) });
         }
 
         int[][] adjMatrix = constructAdjMatrix(n, edges);
+        System.out.println("Adjacency matrix:");
         printMatrix(adjMatrix);
     }
 
@@ -293,10 +294,11 @@ public class testBautistaDS {
         for (int i = 0; i < m; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges.add(new int[] { u, v });
+            edges.add(new int[] { (u - 1), (v - 1) });
         }
 
         int[][] incMatrix = constructIncMatrix(n, edges);
+        System.out.println("Incidence matrix:");
         printMatrix(incMatrix);
     }
 
@@ -323,7 +325,7 @@ public class testBautistaDS {
         for (int i = 0; i < m1; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges1.add(new int[] { u, v });
+            edges1.add(new int[] { (u - 1), (v - 1) });
         }
 
         System.out.println("Enter the number of edges for the second graph:");
@@ -333,7 +335,7 @@ public class testBautistaDS {
         for (int i = 0; i < m2; i++) {
             int u = scanner.nextInt();
             int v = scanner.nextInt();
-            edges2.add(new int[] { u, v });
+            edges2.add(new int[] { (u - 1), (v - 1) });
         }
 
         boolean isIsomorphic = areIsomorphic(n, edges1, edges2);
